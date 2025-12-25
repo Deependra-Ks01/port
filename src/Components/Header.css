@@ -1,0 +1,121 @@
+/* src/components/Header.css */
+
+.header-container {
+  background: rgb(0, 0, 0);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #fff;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  transition: all 0.3s ease;
+}
+
+.header-container.scrolled {
+  padding: 15px 5%;
+  box-shadow: 0 4px 20px rgb(0, 0, 0);
+}
+
+.header-container a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar a {
+  margin-left: 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  opacity: 0.9;
+  position: relative;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar a:hover {
+  opacity: 1;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.navbar a:hover::before {
+  opacity: 1;
+}
+
+.navbar a:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .navbar a {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}

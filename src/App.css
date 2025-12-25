@@ -1,0 +1,94 @@
+/* src/App.css */
+
+.portfolio-app {
+  position: relative;
+  z-index: 1;
+}
+
+/* Central container for all sections */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* Section Styling */
+main section {
+  padding: 120px 0;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#about {
+  background: transparent;
+}
+
+#projects {
+  background: transparent;
+  position: relative;
+}
+
+#projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgba(118, 75, 162, 0.05) 100%);
+  z-index: -1;
+}
+
+#contact {
+  background: transparent;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgb(0, 0, 0);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgb(0, 0, 0);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
